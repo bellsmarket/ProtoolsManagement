@@ -8,7 +8,7 @@
 # Redistributions of files must retain the above copyright notice.
 #
 # @copyright  2019 Bell's market <bellsmarketweb@gmail.com>
-# @see       https://github.com/seikan/Cart
+# @see       https://github.com/bellsmarket/ProtoolsManagement
 
 
 # ----------------Required variable declaration
