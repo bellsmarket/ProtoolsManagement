@@ -18,6 +18,8 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 #Declare the path after the document root
 #ex ) ~/Protools/SongTitle > "/Protools"
 PT_PATH="/Protools"
+IFS_bak=$IFS
+IFS=$'\n'
 # ----------------Required variable declaration
 
 
@@ -26,11 +28,11 @@ function manageGit() {
   git status
 }
 function trashFile() {
-  if [ -e "${TITLE}_MixDown.ptx" ];then
-    rm "${TITLE}_MixDown.ptx"
+  if [ -e "${findResult}_MixDown.ptx" ];then
+    rm "${findResult}_MixDown.ptx"
   fi
-  if [ -e "${TITLE}_StartUp.ptx" ];then
-    rm "${TITLE}_StartUp.ptx"
+  if [ -e "${findResult}_StartUp.ptx" ];then
+    rm "${findResult}_StartUp.ptx"
   fi
   for dir in "${dirArray[@]}"; do
     if [ -e "$dir" ];then
@@ -45,23 +47,41 @@ function trashFile() {
 function inputSongTitle() {
   echo "Please enter the SongTitle to be managed with Protool"
   read TITLE
-
 }
+
 
 
 # Search entered song title and assign result to variable
 function findSongTitle() {
   findFlag=0
-  findArray=$(find $HOME$PT_PATH -type d -iname "$TITLE")
-  IFS_bak=$IFS
-  IFS=$'\n'
+  findArray=($(find $HOME$PT_PATH -type d -iname "*$TITLE*"))
+  echo 要素数は${#findArray[*]}
+  echo ${findArray[@]}
+
+
+  i=0
+  if [ ${#findArray[*]} = 1 ] && [ "$findArray" = "" ];then
+    echo "The file you entered does not exist."
+    findFlag=1
+    exit 0
+  elif [ ${#findArray[*]} = 1 ] && [ ! "$findArray" = "" ];then
+    findResult=$(basename "$findArray")
+    cd "$findArray"
+  else
+    echo "Search results Songs will be below. Please enter the appropriate number."
+    for song in "${findArray[@]}";do
+      echo ${i}：$(basename $song)
+      (( i ++))
+    done
+    read tmpInput
+    findResult=$(basename "${findArray[$tmpInput]}")
+    cd "${findArray[$tmpInput]}"
+  fi
 
   #Determining the existence of the session directory of the input title
-  if [ -e "$findResult"  ];then
-    cd "$findResult"
-  else
-    findFlag=1
-  fi
+  # if [ -e "$findResult" ];then
+  #   cd "$findResult"
+  # fi
 }
 
 
@@ -92,27 +112,24 @@ function touchIgnoreFile() {
 }
 
 function cpyPTFile() {
-  ptx="$TITLE.ptx"
+  ptx="$findResult.ptx"
   if [ -e "$ptx" ];then
-    cp -vn "$ptx" "${TITLE}_MixDown.ptx"
-    cp -vn "$ptx" "${TITLE}_StartUp.ptx"
+    cp -vn "$ptx" "${findResult}_MixDown.ptx"
+    cp -vn "$ptx" "${findResult}_StartUp.ptx"
   else
-    echo "${TITLE}.ptx is Not Exists."
+    echo "${findResult}.ptx is Not Exists."
   fi
 }
 
 function main() {
   inputSongTitle
   findSongTitle
-  if [ ! $findFlag -eq 1 ];then
+  if [ $findFlag -eq 0 ];then
     exitstenceSubDirectory
     cpyPTFile
     manageGit
-  else
-    echo "The file you entered does not exist."
   fi
 }
-
 
 
 main
