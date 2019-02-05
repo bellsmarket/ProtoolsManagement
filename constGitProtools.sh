@@ -4,9 +4,6 @@
 # ShellScript that builds an environment that manages DAW:Protools session data with git.
 # Copyright (c) 2019 Bell's market
 #
-# Distributed under the terms of the MIT License.
-# Redistributions of files must retain the above copyright notice.
-#
 # @copyright  2019 Bell's market <bellsmarketweb@gmail.com>
 # @see       https://github.com/bellsmarket/ProtoolsManagement
 
@@ -40,7 +37,6 @@ function trashFile() {
       rm -R .git
     fi
   done
-
 }
 
 # Enter the name of the song to search

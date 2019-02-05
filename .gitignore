@@ -1,4 +1,2 @@
-*.sh
-*.txt
-!constGitProtools.sh
-.gitignore
+moveUsed.sh
+!moveUnused.sh
