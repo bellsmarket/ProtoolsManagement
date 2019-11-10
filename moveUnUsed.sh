@@ -147,9 +147,9 @@ function matchPlugin () {
 
 function cntPlugin() {
 	echo "cntPlugin() is Called"
-	echo "全てのプラグインの数は "$AllPLUG_len
-	echo "認証されたプラグインの数は "$Auth_len
-	echo "不要なプラグインの数は " $(( AllPLUG_len - Auth_len ))
+	echo "Number of all Plug-Ins: "$AllPLUG_len
+	echo "Number of Authentication Plug-Ins: "$Auth_len
+	echo "Number of Not Authentication Plug-Ins: " $(( AllPLUG_len - Auth_len ))
 }
 
 
