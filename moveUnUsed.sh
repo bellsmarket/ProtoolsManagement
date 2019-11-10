@@ -1,83 +1,216 @@
 #!/bin/bash
 
-#UAD Powered Plug-Ins:9.7.0
+#UAD Powered Plug-Ins:9.7.0 -> 9.10.02
 #UAD plugin creates all plugins for Ptotools each time it is updated.
 #It is very troublesome to move plugins that are not authorized each time.
 #If you read the authorized plug-in list, it automatically moves plug-ins that you do not use to unused folders.
 
-# Copyright (c) 2019 Bell's market
-#
-# @copyright  2019 Bell's market <bellsmarketweb@gmail.com>
+# @copyright  2019 Bell's market <bellsmarketweb+github@gmail.com>
 # @see       https://github.com/bellsmarket/ProtoolsManagement
+# @Update 2019/11/11 
 
 #-------------------Valiable List----------------------
 IFS=$',\n'
-currentPath=$(cd $(dirname $0); pwd)
-PTPluginDir="/Library/Application Support/Avid/Audio/"
-
-movePluginList="unUsedPlug-Ins.txt"
-moveListPath="$PTPluginDir""$movePluginList"
+BASSPATH=$(cd $(dirname $0); pwd)
 UAD="Universal Audio"
-usedUAD=$PTPluginDir"Plug-Ins/"$UAD
-unUsedDir=$PTPluginDir"Plug-Ins (Unused)/"
-unUsedUAD=$unUsedDir$UAD
+
+WORKPATH="/Library/Application Support/Avid/Audio"
+#UsedDirName
+USEDPLUGIN="Plug-Ins"
+
+# UnusedDirName
+UNUSEDPLUGIN="Plug-Ins (Unused)"
+
+GITHUBPATH="/Users/bellsmarket/Github/ProtoolsManagement"
+PlugInsList=("AllPlugIns.txt" "AuthorizedPlugIns.txt" "NotAuthPlugIns.txt")
+
+TARGETPATH="/Library/Application Support/Avid/Audio/Plug-Ins (Unused)/Universal Audio"
+# ${PlugInsList[0]}  All
+# ${PlugInsList[1]}  Auth
+# ${PlugInsList[2]}  NotAuth
 #-------------------Valiable List----------------------
+
+
+#Create a file with all plug-ins listed
+function makeAllList() {
+	cd $WORKPATH
+	cd $USEDPLUGIN
+	cd $UAD
+	LISTPATH=${WORKPATH}/${USEDPLUGIN}/${UAD}
+	ls -l $LISTPATH|awk '{print $9" "$10" "$11" "$12" "$13" "$14}' > $GITHUBPATH/${PlugInsList[0]}
+}
+
+
+# Confirm existence of folder and create
+function dirCheck() {
+	cd $1
+
+	if [ ! -e "$2" ];then
+		mkdir -v $2
+	fi
+
+	cd $2
+	if [ ! -e "$3" ];then
+		mkdir -v $3
+	fi
+	echo $2 Folder check complete!.
+}
+
+
+function test() {
+	# Auth Plug-In Folerの判定　-> Create Dir
+	dirCheck $WORKPATH $USEDPLUGIN $UAD
+
+	# NotAuth Plug-In Folerの判定　-> Create Dir
+	dirCheck $WORKPATH $UNUSEDPLUGIN $UAD
+}
+
+
+# function makeSymboricLink() {
+# 	sudo ln -s ${HOME}/Github/ProtoolsManagement/AuthorizedPlugIns.txt  ${WORKPATH}/AuthorizedPlugIns.txt
+# 	sudo ln -s ${HOME}/Github/ProtoolsManagement/AllPlugIns.txt  ${WORKPATH}/AllPlugIns.txt
+# 	sudo ln -s ${HOME}/Github/ProtoolsManagement/NotAuthPlugIns.txt  ${WORKPATH}/NotAuthPlugIns.txt
+# }
+
+function makeMoveList() {
+	echo "makeMoveList() is Called"
+	cd $GITHUBPATH
+
+	ALLPLUGINLIST=(`cat ${PlugInsList[0]}`)
+	AllPLUG_len=${#ALLPLUGINLIST[@]}
+
+	AuthPLUGINLIST=(`cat ${PlugInsList[1]}`)
+	Auth_len=${#AuthPLUGINLIST[@]}
+	Unused_len=0 
+
+
+	i=0
+  #Check file Exists.  
+  if [ ! -e "${PlugInsList[2]}" ];then
+  	touch ${PlugInsList[2]}
+
+  	while [ $i -lt $AllPLUG_len ] ; do
+  		tmp=(`eval echo "${ALLPLUGINLIST[$i]}"`)
+  		echo $tmp >> ${PlugInsList[2]}
+      # eval echo  "${ALLPLUGINLIST[$i]}"
+      (( i ++ ))
+    done
+
+  fi
+
+  #Check file empty.
+  if [ ! -s "${PlugInsList[2]}" ];then
+
+  	while [ "$i" -lt "$AllPLUG_len" ] ; do
+
+  		tmp=(`eval echo "${ALLPLUGINLIST[$i]}"`)
+  		echo $tmp >> ${PlugInsList[2]}
+  		(( i ++ ))
+      # eval echo  "${all[$i]}"
+    done
+
+    echo File was added List because it was empty.
+    echo ""
+  fi
+}
+
+
+
+#Unused Plug-ins are extracted by comparing All Plug-ins with Authentication Plug-ins.
+function matchPlugin () {
+	echo "matchPlugin() is Called"
+	i=0
+
+	while [ $i -lt $AllPLUG_len ]; do
+
+		tmpALL=(`eval echo "${ALLPLUGINLIST[$i]}"`)
+		(( i ++ ))
+		j=0
+
+		while [ $j -lt $Auth_len ]; do
+			tmpUSE=(`eval echo  "${AuthPLUGINLIST[$j]}"`)
+
+			if [ "$tmpALL" = "$tmpUSE" ]; then
+				# echo $tmpUSE" : Matched -> File has been moved. "
+				gsed  -i "/${tmpUSE}/d" ${PlugInsList[2]}
+				(( Unused_len ++ ))
+			fi
+			(( j ++ ))
+		done
+	done
+	gsed -i "/AllPlugIns.txt/d" ${PlugInsList[2]}
+	gsed -i "/Icon/d" ${PlugInsList[2]}
+	gsed -i "/.DS_Store/d" ${PlugInsList[2]}
+
+}
+
+
+function cntPlugin() {
+	echo "cntPlugin() is Called"
+	echo "全てのプラグインの数は "$AllPLUG_len
+	echo "認証されたプラグインの数は "$Auth_len
+	echo "不要なプラグインの数は " $(( AllPLUG_len - Auth_len ))
+}
+
+
 
 # Output all variables
 function echoValiable() {
-	echo -e "\033[0;36mcurrentPath ->\033[0;39m" $currentPath
-	echo -e "\033[0;36mPTPluginDir ->\033[0;39m" $PTPluginDir
-	echo -e "\033[0;36mmovePluginList ->\033[0;39m" $movePluginList
+	echo "echoValiable() is Called"
+	echo -e "\033[0;36mcurrentPath ->\033[0;39m" $BASSPATH
+	echo -e "\033[0;36mPLUGINDIR ->\033[0;39m" ${WORKPATH}
+	echo -e "\033[0;36mmovePluginList ->\033[0;39m" ${movePluginList}
 	echo -e "\033[0;36mmoveListPath ->\033[0;39m" $moveListPath
 	echo -e "\033[0;36mUAD ->\033[0;39m" $UAD
 	echo -e "\033[0;36musedUAD ->\033[0;39m" $usedUAD
 	echo -e "\033[0;36munUsedUAD ->\033[0;39m" $unUsedUAD
 }
 
-# Confirm existence of folder and create
-function makeunUsedDir() {
-	if [ ! -e $unUsedUAD ]; then
-		mkdir -v $unUsedDir
-	fi
-}
 
-#Load unused Plugin list and Assign it to array
+# Load unused Plugin list and Assign it to array
 function makePluginArray() {
-	pluginArray=(`cat $moveListPath`)
-	array_size=${#pluginArray[@]}
-	echo "Plug-ins not using = $array_size"
+	echo "makePluginArray() is Called"
+	cd $GITHUBPATH
+
+	NotAuthPLUGINLIST=(`cat ${PlugInsList[2]}`)
+	NotAuth_len=${#NotAuthPLUGINLIST[@]}
+	
 }
 
-#Display all contents of the list
-function findPlugin () {
+
+function movePlugIns() {
+	echo "findPlugin() is Called"
+	cd $GITHUBPATH
+
+
+	cd $WORKPATH
+	cd $USEDPLUGIN
+	cd $UAD
+	
 	i=0
-	while [ $i -lt $array_size ] ; do
-		eval echo  "${pluginArray[$i]}"
-		find $usedUAD -iname "${pluginArray[$i]}" -maxdepth 3
+	while [ $i -lt $NotAuth_len ] ; do
+		tmp=$(eval echo "${NotAuthPLUGINLIST[$i]}")
+		if [ ! -e "$tmp" ];then
+			echo $tmp is not Exists.
+		else
+			mv $tmp $TARGETPATH
+		fi
+		echo -e "\033[0;32m$tmp -> \033[0;39m $TARGETPATH"
 		(( i ++ ))
 	done
 }
 
 
-function movePluginToUnUsed() {
-	i=0
-	if [ -e "$usedUAD" ]; then
-		while [ $i -lt $array_size ] ; do
-			find "$usedUAD" -iname "${pluginArray[$i]}" -maxdepth 1 -exec mv -i {} $unUsedUAD \;
-			(( i ++ ))
-		done
-		echo -e "\033[0;31mMovement of the file is complete\033[0;39m"
-	else
-		echo -e "\033[0;31mDirectory Path NG\033[0;39m"
-	fi
-}
-
 function main() {
-	# echoValiable
-	makeunUsedDir
+	makeAllList
+	makeMoveList
+	matchPlugin
 	makePluginArray
-	# findPlugin
-	movePluginToUnUsed
+	movePlugIns
+	cntPlugin
+
+	echo "All UAD Plugin was Clean UP Complete."
+	return 0
 }
 
 main
