@@ -1,0 +1,70 @@
+UAD Ampex ATR-102.aaxplugin
+UAD Ampeg SVTVR.aaxplugin
+UAD API 550A.aaxplugin
+UAD API 560.aaxplugin
+UAD API Vision Channel Strip.aaxplugin
+UAD Antares Auto-Tune Realtime.aaxplugin
+UAD Bermuda Triangle.aaxplugin
+UAD CS-1.aaxplugin
+UAD Console Recall.aaxplugin
+UAD Cooper Time Cube.aaxplugin
+UAD Dytronics Cyclosonic Panner.aaxplugin
+UAD EMT 140.aaxplugin
+UAD Fairchild 670 Legacy.aaxplugin
+UAD Fender 55 Tweed Deluxe.aaxplugin
+UAD Galaxy Tape Echo.aaxplugin
+UAD Helios 69.aaxplugin
+UAD Lexicon 224.aaxplugin
+UAD MDWEQ5-3B.aaxplugin
+UAD MDWEQ5-5B.aaxplugin
+UAD Manley Massive Passive MST.aaxplugin
+UAD Manley Massive Passive.aaxplugin
+UAD Marshall Plexi Classic.aaxplugin
+UAD Neve 1073 Legacy.aaxplugin
+UAD Neve 1073.aaxplugin
+UAD Neve 1073SE Legacy.aaxplugin
+UAD Neve 88RS Legacy.aaxplugin
+UAD Neve 88RS.aaxplugin
+UAD Ocean Way Mic Collection.aaxplugin
+UAD Ocean Way Studios.aaxplugin
+UAD Oxford Dynamic EQ.aaxplugin
+UAD Oxide Tape.aaxplugin
+UAD Precision Channel Strip.aaxplugin
+UAD Precision De-Esser.aaxplugin
+UAD Precision Delay Mod L.aaxplugin
+UAD Precision Delay Mod.aaxplugin
+UAD Precision Enhancer Hz.aaxplugin
+UAD Precision Enhancer kHz.aaxplugin
+UAD Precision K-Stereo.aaxplugin
+UAD Precision Limiter.aaxplugin
+UAD Precision Reflection Engine.aaxplugin
+UAD Pultec EQP-1A Legacy.aaxplugin
+UAD Pultec EQP-1A.aaxplugin
+UAD Pultec HLF-3C.aaxplugin
+UAD Pultec MEQ-5.aaxplugin
+UAD Pultec-Pro Legacy.aaxplugin
+UAD Raw.aaxplugin
+UAD RealVerb-Pro.aaxplugin
+UAD Roland RE-201.aaxplugin
+UAD Shadow Hills Mastering Compressor.aaxplugin
+UAD Softube Amp Room Half-Stack.aaxplugin
+UAD Softube Bass Amp Room 8x10.aaxplugin
+UAD Sound Machine Wood Works.aaxplugin
+UAD SPL Transient Designer.aaxplugin
+UAD SSL E Channel Strip Legacy.aaxplugin
+UAD SSL E Channel Strip.aaxplugin
+UAD SSL G Bus Compressor Legacy.aaxplugin
+UAD SSL G Bus Compressor.aaxplugin
+UAD Studer A800.aaxplugin
+UAD Teletronix LA-2A Legacy.aaxplugin
+UAD Townsend Labs Sphere 180.aaxplugin
+UAD Townsend Labs Sphere.aaxplugin
+UAD TS Overdrive.aaxplugin
+UAD UA 1176 Rev A.aaxplugin
+UAD UA 1176AE.aaxplugin
+UAD UA 1176LN Rev E.aaxplugin
+UAD UA 1176LN Legacy.aaxplugin
+UAD UA 1176SE Legacy.aaxplugin
+UAD UA 610-A.aaxplugin
+UAD UA 610-B.aaxplugin
+UAD Valley People Dyna-mite.aaxplugin
