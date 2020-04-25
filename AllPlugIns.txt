@@ -1,0 +1,153 @@
+     
+.DS_Store     
+API 550A.aaxplugin    
+API 560.aaxplugin    
+API Vision Channel Strip.aaxplugin  
+Ampeg SVT3Pro.aaxplugin    
+Ampeg SVTVR Classic.aaxplugin   
+Ampeg SVTVR.aaxplugin    
+Ampex ATR-102.aaxplugin    
+Antares Auto-Tune Realtime.aaxplugin   
+Bermuda Triangle.aaxplugin    
+CS-1.aaxplugin     
+Console Recall.aaxplugin    
+Cooper Time Cube.aaxplugin   
+Dytronics Cyclosonic Panner.aaxplugin   
+EMT 140.aaxplugin    
+Fairchild 670 Legacy.aaxplugin   
+Fender 55 Tweed Deluxe.aaxplugin  
+Galaxy Tape Echo.aaxplugin   
+Icon     
+Lexicon 224.aaxplugin    
+MDWEQ5-3B.aaxplugin     
+MDWEQ5-5B.aaxplugin     
+Manley Massive Passive MST.aaxplugin  
+Manley Massive Passive.aaxplugin   
+Marshall Plexi Classic.aaxplugin   
+Neve 1073 Legacy.aaxplugin   
+Neve 1073.aaxplugin    
+Neve 1073SE Legacy.aaxplugin   
+Neve 88RS Legacy.aaxplugin   
+Neve 88RS.aaxplugin    
+Ocean Way Mic Collection.aaxplugin  
+Ocean Way Studios.aaxplugin   
+Oxford Dynamic EQ.aaxplugin   
+Oxide Tape.aaxplugin    
+Precision Channel Strip.aaxplugin   
+Precision De-Esser.aaxplugin    
+Precision Delay Mod L.aaxplugin  
+Precision Delay Mod.aaxplugin   
+Precision Enhancer Hz.aaxplugin   
+Precision Enhancer kHz.aaxplugin   
+Precision K-Stereo.aaxplugin    
+Precision Limiter.aaxplugin    
+Precision Reflection Engine.aaxplugin   
+Pultec EQP-1A Legacy.aaxplugin   
+Pultec EQP-1A.aaxplugin    
+Pultec HLF-3C.aaxplugin    
+Pultec MEQ-5.aaxplugin    
+Pultec-Pro Legacy.aaxplugin    
+Raw.aaxplugin     
+RealVerb-Pro.aaxplugin     
+Roland RE-201.aaxplugin    
+SPL Transient Designer.aaxplugin   
+SSL E Channel Strip Legacy.aaxplugin 
+SSL E Channel Strip.aaxplugin  
+SSL G Bus Compressor Legacy.aaxplugin 
+SSL G Bus Compressor.aaxplugin  
+Shadow Hills Mastering Compressor.aaxplugin  
+Softube Amp Room Half-Stack.aaxplugin  
+Softube Bass Amp Room 8x10.aaxplugin 
+Softube Bass Amp Room.aaxplugin  
+Softube Metal Amp Room.aaxplugin  
+Softube Vintage Amp Room.aaxplugin  
+Sound Machine Wood Works.aaxplugin  
+Studer A800.aaxplugin    
+TS Overdrive.aaxplugin    
+Teletronix LA-2A Legacy.aaxplugin   
+Townsend Labs Sphere 180.aaxplugin  
+Townsend Labs Sphere.aaxplugin   
+Tube-Tech CL 1B mk II.aaxplugin 
+Tube-Tech CL 1B.aaxplugin   
+Tube-Tech ME 1B.aaxplugin   
+Tube-Tech PE 1C.aaxplugin   
+UA 1176 Rev A.aaxplugin  
+UA 1176AE.aaxplugin    
+UA 1176LN Legacy.aaxplugin   
+UA 1176LN Rev E.aaxplugin  
+UA 1176SE Legacy.aaxplugin   
+UA 610-A.aaxplugin    
+UA 610-B.aaxplugin    
+UAD API 550A.aaxplugin   
+UAD API 560.aaxplugin   
+UAD API Vision Channel Strip.aaxplugin 
+UAD Ampeg SVTVR.aaxplugin   
+UAD Ampex ATR-102.aaxplugin   
+UAD Antares Auto-Tune Realtime.aaxplugin  
+UAD Auto-Tune Realtime Access.aaxplugin  
+UAD Avalon VT-737sp.aaxplugin   
+UAD Bermuda Triangle.aaxplugin   
+UAD CS-1.aaxplugin    
+UAD Cooper Time Cube.aaxplugin  
+UAD Diezel VH4.aaxplugin   
+UAD Dytronics Cyclosonic Panner.aaxplugin  
+UAD EMT 140.aaxplugin   
+UAD Fairchild 670 Legacy.aaxplugin  
+UAD Fender 55 Tweed Deluxe.aaxplugin 
+UAD Galaxy Tape Echo.aaxplugin  
+UAD Lexicon 224.aaxplugin   
+UAD MDWEQ5-3B.aaxplugin    
+UAD MDWEQ5-5B.aaxplugin    
+UAD Manley Massive Passive MST.aaxplugin 
+UAD Manley Massive Passive.aaxplugin  
+UAD Marshall Plexi Classic.aaxplugin  
+UAD Neve 1073 Legacy.aaxplugin  
+UAD Neve 1073.aaxplugin   
+UAD Neve 1073SE Legacy.aaxplugin  
+UAD Neve 88RS Legacy.aaxplugin  
+UAD Neve 88RS.aaxplugin   
+UAD Ocean Way Mic Collection.aaxplugin 
+UAD Ocean Way Studios.aaxplugin  
+UAD Oxford Dynamic EQ.aaxplugin  
+UAD Oxford SuprEsser DS.aaxplugin  
+UAD Oxide Tape.aaxplugin   
+UAD Precision Channel Strip.aaxplugin  
+UAD Precision De-Esser.aaxplugin   
+UAD Precision Delay Mod L.aaxplugin 
+UAD Precision Delay Mod.aaxplugin  
+UAD Precision Enhancer Hz.aaxplugin  
+UAD Precision Enhancer kHz.aaxplugin  
+UAD Precision K-Stereo.aaxplugin   
+UAD Precision Limiter.aaxplugin   
+UAD Precision Reflection Engine.aaxplugin  
+UAD Pultec EQP-1A Legacy.aaxplugin  
+UAD Pultec EQP-1A.aaxplugin   
+UAD Pultec HLF-3C.aaxplugin   
+UAD Pultec MEQ-5.aaxplugin   
+UAD Pultec-Pro Legacy.aaxplugin   
+UAD Raw.aaxplugin    
+UAD RealVerb-Pro.aaxplugin    
+UAD Roland RE-201.aaxplugin   
+UAD SPL Transient Designer.aaxplugin  
+UAD SSL E Channel Strip Legacy.aaxplugin
+UAD SSL E Channel Strip.aaxplugin 
+UAD SSL G Bus Compressor Legacy.aaxplugin
+UAD SSL G Bus Compressor.aaxplugin 
+UAD Shadow Hills Mastering Compressor.aaxplugin 
+UAD Softube Amp Room Half-Stack.aaxplugin 
+UAD Softube Bass Amp Room 8x10.aaxplugin
+UAD Sound Machine Wood Works.aaxplugin 
+UAD Studer A800.aaxplugin   
+UAD TS Overdrive.aaxplugin   
+UAD Teletronix LA-2A Legacy.aaxplugin  
+UAD Townsend Labs Sphere 180.aaxplugin 
+UAD Townsend Labs Sphere.aaxplugin  
+UAD UA 1176 Rev A.aaxplugin 
+UAD UA 1176AE.aaxplugin   
+UAD UA 1176LN Legacy.aaxplugin  
+UAD UA 1176LN Rev E.aaxplugin 
+UAD UA 1176SE Legacy.aaxplugin  
+UAD UA 610-A.aaxplugin   
+UAD UA 610-B.aaxplugin   
+UAD Valley People Dyna-mite.aaxplugin  
+Valley People Dyna-mite.aaxplugin   
