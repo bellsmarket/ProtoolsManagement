@@ -27,7 +27,6 @@ function makePluginJson() {
     echo "Exist"
     count=1
     find "$UA" -type d -maxdepth 1|sort -f| sed "s|$UA||g"|sed "s|\(^/\)||g"|sed -e '1d'| while read plug
-
   do
     echo {
     echo    \"pluginID\": $count,
@@ -46,18 +45,20 @@ else
   fi
 }
 
+
 function checkAuthPlugin() {
   if [[ -f "./AuthorizedPlugIns.txt" ]]; then
     echo "Exists."
     while read tmp ; do
-      jq '(.[]| select (.pluginName == "'"$tmp"'")| .authentication=1)' "$jsonFILE"
-    done < ./AuthorizedPlugIns.txt
+      jq '(.[]| select (.pluginName == "'"$tmp"'")| .authentication=1)' "$jsonFILE" 
+    done < ./AuthorizedPlugIns.txt 
   fi
-
 }
 
 # function main {{{
 function main() {
+  # jq '(.[]| select (.authentication == 1))' "$jsonFILE"
+
   # makePluginJson
   checkAuthPlugin
   return 0

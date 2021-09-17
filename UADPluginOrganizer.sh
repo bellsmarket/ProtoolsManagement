@@ -21,7 +21,7 @@ USEDPLUGIN="Plug-Ins"
 # UnusedDirName
 UNUSEDPLUGIN="Plug-Ins (Unused)"
 
-GITHUBPATH="/Users/bellsmarket/Github/ProtoolsManagement"
+GITHUBPATH="/Users/bellsmarket/ghq/github.com/bellsmarket/ProtoolsManagement"
 PlugInsList=("AllPlugIns.txt" "AuthorizedPlugIns.txt" "NotAuthPlugIns.txt")
 
 TARGETPATH="/Library/Application Support/Avid/Audio/Plug-Ins (Unused)/Universal Audio"
@@ -35,23 +35,19 @@ LISTPATH=${WORKPATH}/${USEDPLUGIN}/${UAD}
 #Create a file with all plug-ins listed
 function makeAllList() {
 	echo "makeAllList() is Called"
-	cd $WORKPATH
-	cd $USEDPLUGIN
-	cd $UAD
 
-	ls -l ${LISTPATH}|awk '{print $9" "$10" "$11" "$12" "$13" "$14}' > $GITHUBPATH/${PlugInsList[0]}
+  find "${LISTPATH}" -type d -maxdepth 1|sort -f| sed "s|${LISTPATH}||g"|sed "s|\(^/\)||g"|sed -e '1d' > "$GITHUBPATH/${PlugInsList[0]}"
 }
 
 
 function makeUADNotAuthDir() {
 	echo "makeUADNotAuthDir() is Called"
-	cd $WORKPATH
-	cd $UNUSEDPLUGIN
-	if [ ! -e "$UAD"  ]; then
-		mkdir $UAD
-	fi
 
+	if [ ! -e "/Library/Application Support/Avid/Audio/Plug-Ins (Unused)" ]; then
+		mkdir "/Library/Application Support/Avid/Audio/Plug-Ins (Unused)"
+	fi
 }
+
 # Confirm existence of folder and create
 function dirCheck() {
 	cd $1
@@ -77,11 +73,6 @@ function test() {
 }
 
 
-# function makeSymboricLink() {
-# 	sudo ln -s ${HOME}/Github/ProtoolsManagement/AuthorizedPlugIns.txt  ${WORKPATH}/AuthorizedPlugIns.txt
-# 	sudo ln -s ${HOME}/Github/ProtoolsManagement/AllPlugIns.txt  ${WORKPATH}/AllPlugIns.txt
-# 	sudo ln -s ${HOME}/Github/ProtoolsManagement/NotAuthPlugIns.txt  ${WORKPATH}/NotAuthPlugIns.txt
-# }
 
 function makeMoveList() {
 	echo "makeMoveList() is Called"
@@ -95,7 +86,7 @@ function makeMoveList() {
 	Unused_len=0 
 
 	i=0
-  #Check file Exists.  
+  #Check file Exists.
   if [ ! -e "${PlugInsList[2]}" ];then
   	touch ${PlugInsList[2]}
 
@@ -148,15 +139,10 @@ function matchPlugin () {
 	done
 
 
-j=0
-
-
-
-
+  j=0
 	gsed -i "/AllPlugIns.txt/d" ${PlugInsList[2]}
 	gsed -i "/Icon/d" ${PlugInsList[2]}
 	gsed -i "/.DS_Store/d" ${PlugInsList[2]}
-
 }
 
 
